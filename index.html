@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QuickCart — thoughtfully selected everyday essentials." />
+    <title>QuickCart — Everyday, elevated</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="announcement">Complimentary delivery on orders above $75 <span>✦</span> Use code <strong>HELLO10</strong> for 10% off</div>
+    <header class="site-header">
+      <button class="mobile-menu" aria-label="Open menu" id="mobile-menu">☰</button>
+      <a class="brand" href="#shop">quick<span>cart</span></a>
+      <nav id="main-nav">
+        <a href="#shop">Shop</a><a href="#story">Our story</a><a href="#admin" id="admin-link">Admin</a>
+      </nav>
+      <button class="cart-button" id="cart-button" aria-label="Open shopping cart">
+        <span class="bag-icon">▢</span> Bag <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">The everyday edit · 2026</p>
+          <h1>Good things,<br /><em>right now.</em></h1>
+          <p class="hero-description">A considered collection of small essentials made to bring a little more joy to your daily rhythm.</p>
+          <a href="#shop" class="button button-dark">Shop the collection <span>→</span></a>
+          <div class="hero-notes"><span>✦ Curated with care</span><span>↗ Ships in 24 hours</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-shape"></div>
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1100&q=85" alt="Warmly styled home office" />
+          <div class="floating-note"><span>New arrivals</span><strong>Made for<br />slow mornings.</strong><i>↗</i></div>
+        </div>
+      </section>
+
+      <section class="shop-section" id="shop">
+        <div class="section-heading">
+          <div><p class="eyebrow">The quickcart edit</p><h2>Find your next<br /><em>favorite thing.</em></h2></div>
+          <div class="filter-wrap"><button class="filter active" data-filter="All">All things</button><button class="filter" data-filter="Home">Home</button><button class="filter" data-filter="Wellness">Wellness</button><button class="filter" data-filter="Desk">Desk</button></div>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+      </section>
+
+      <section class="feature-strip" id="story">
+        <p class="eyebrow">Why quickcart</p>
+        <div class="feature-grid">
+          <div><span>01</span><h3>Chosen, not crowded.</h3><p>Everything earns a place here. No endless scrolling required.</p></div>
+          <div><span>02</span><h3>Small-batch feel.</h3><p>Useful objects with character, from makers we genuinely admire.</p></div>
+          <div><span>03</span><h3>Fast to your door.</h3><p>Because the little things you love shouldn't make you wait.</p></div>
+        </div>
+      </section>
+
+      <section class="newsletter"><div><p class="eyebrow">A little note from us</p><h2>Good mail only.</h2></div><form id="newsletter-form"><input type="email" placeholder="Your email address" required /><button class="button button-light">Join the list →</button></form></section>
+    </main>
+
+    <footer><a class="brand" href="#shop">quick<span>cart</span></a><p>Everyday objects. Beautifully simple.</p><p>© 2026 QuickCart</p></footer>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+      <div class="drawer-header"><h2>Your bag <span id="drawer-count">0</span></h2><button class="icon-button" id="close-cart" aria-label="Close cart">×</button></div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-bottom">
+        <div class="coupon-row"><input id="coupon-input" placeholder="Discount code" /><button id="apply-coupon">Apply</button></div>
+        <p class="coupon-message" id="coupon-message"></p>
+        <div class="totals"><div><span>Subtotal</span><span id="subtotal">$0.00</span></div><div class="discount-row hidden" id="discount-row"><span>Discount</span><span id="discount">−$0.00</span></div><div><strong>Total</strong><strong id="total">$0.00</strong></div></div>
+        <button class="button button-dark checkout-button" id="checkout-button">Checkout securely <span>→</span></button>
+        <p class="secure-note">▣ Secure checkout · Free shipping over $75</p>
+      </div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <section class="modal" id="auth-modal" aria-hidden="true"><div class="modal-card auth-card"><button class="modal-close" data-close="auth-modal">×</button><p class="eyebrow">QuickCart Studio</p><h2>Admin sign in</h2><p>Manage your collection from one calm corner.</p><form id="login-form"><label>Email<input type="email" id="login-email" placeholder="admin@quickcart.com" required /></label><label>Password<input type="password" id="login-password" placeholder="••••••••" required /></label><p class="form-error" id="login-error"></p><button class="button button-dark" type="submit">Sign in →</button></form><small>Demo access: admin@quickcart.com · quickcart</small></div></section>
+
+    <section class="modal admin-modal" id="admin-modal" aria-hidden="true"><div class="modal-card admin-card"><div class="admin-top"><div><p class="eyebrow">QuickCart Studio</p><h2>Product inventory</h2></div><div><button class="admin-logout" id="logout">Log out</button><button class="modal-close" data-close="admin-modal">×</button></div></div><div class="admin-layout"><form class="product-form" id="product-form"><h3 id="form-title">Add a product</h3><input type="hidden" id="product-id" /><label>Product name<input id="product-name" required placeholder="e.g. Cloud Mug" /></label><div class="form-pair"><label>Price ($)<input id="product-price" type="number" min="0" step="0.01" required /></label><label>Category<select id="product-category"><option>Home</option><option>Wellness</option><option>Desk</option></select></label></div><label>Image path or URL<input id="product-image" type="text" placeholder="assets/cloud-mug.jpg" /></label><label>Or upload an image<input id="product-upload" type="file" accept="image/*" /></label><p class="image-help">Use an image in the <code>assets</code> folder, paste a URL, or choose a file. Upload takes priority.</p><label>Description<textarea id="product-description" required placeholder="A short, inviting product description."></textarea></label><div class="form-actions"><button type="button" class="text-button hidden" id="cancel-edit">Cancel</button><button class="button button-dark" type="submit" id="save-product">Add product →</button></div></form><div class="admin-products"><h3>Live collection <span id="admin-product-count"></span></h3><div id="admin-product-list"></div></div></div></div></section>
+
+    <section class="modal" id="checkout-modal" aria-hidden="true"><div class="modal-card checkout-card"><button class="modal-close" data-close="checkout-modal">×</button><p class="eyebrow">Almost yours</p><h2>Billing details</h2><form id="checkout-form"><div class="form-pair"><label>First name<input required /></label><label>Last name<input required /></label></div><label>Email address<input type="email" required /></label><label>Card number<input inputmode="numeric" required placeholder="4242 4242 4242 4242" /></label><div class="form-pair"><label>Expiry<input required placeholder="MM / YY" /></label><label>CVC<input required placeholder="123" /></label></div><button class="button button-dark" type="submit">Place order <span id="checkout-total">$0.00</span></button></form></div></section>
+    <section class="modal" id="success-modal" aria-hidden="true"><div class="modal-card success-card"><div class="success-mark">✓</div><p class="eyebrow">Order confirmed</p><h2>It’s on its way.</h2><p>Thanks for choosing a little more delight in the everyday. We’ll send your receipt shortly.</p><button class="button button-dark" data-close="success-modal">Keep exploring →</button></div></section>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
